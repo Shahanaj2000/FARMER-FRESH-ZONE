@@ -25,18 +25,18 @@ class VegGrid extends StatelessWidget {
         shrinkWrap: true,
         padding: const EdgeInsets.all(10.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
+            crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
         itemCount: images.length,
-        itemBuilder: (BuildContext ctx, int index) {
+        itemBuilder: (BuildContext context, int index) {
           /*return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                // height: 90,
-                //width: 120,
-                height: MediaQuery.of(context).size.height / 5,
-                width: MediaQuery.of(context).size.width * .3,
+                height: 100,
+                width: 120,
+                //height: MediaQuery.of(context).size.height / 5,
+                //width: MediaQuery.of(context).size.width * .3,
                 decoration: BoxDecoration(
                   boxShadow: const [
                     BoxShadow(
@@ -46,39 +46,62 @@ class VegGrid extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: NetworkImage(images[index])),
+                      fit: BoxFit.cover, 
+                      image: NetworkImage(images[index])),
                 ),
               ),
               const SizedBox(
                 height: 8,
               ),
               Text(names[index]),
+              
             ],
-          );*/
+          ); */
           return Stack(
             children: [
-              Container(
-                // height: 90,
-                //width: 120,
-                height: MediaQuery.of(context).size.height / 5,
-                width: MediaQuery.of(context).size.width * .3,
-                decoration: BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 20.0,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      fit: BoxFit.cover, image: NetworkImage(images[index])),
+              Positioned(
+                top: 0.0,
+                left: 0.0,
+                right: 0.0,
+                bottom: 0.0,
+                child: Container(
+                  //height: 100,
+                  //width: 120,
+                  height: MediaQuery.of(context).size.height / 5,
+                  width: MediaQuery.of(context).size.width * .3,
+                  decoration: BoxDecoration(
+                    /*boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 20.0,
+                      ), 
+                    ],*/
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        fit: BoxFit.cover, image: NetworkImage(images[index])),
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              Center(
-                child: Text(names[index], style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                //left: ,
+                child: Container(
+                  //height: MediaQuery.of(context).size.height / 5,
+                  width: MediaQuery.of(context).size.width * .3,
+                  color: Colors.indigo,
+                  height: 20,
+                  child: Center(
+                    child: Text(
+                      names[index],
+                      style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
               ),
             ],
           );

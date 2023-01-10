@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:farmers_fresh_zone/vef_grid.dart';
+import 'package:farmers_fresh_zone/items1.dart';
 import 'package:flutter/material.dart';
 
 class FarmersFreshZone extends StatelessWidget {
@@ -9,6 +9,7 @@ class FarmersFreshZone extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        scrollDirection: Axis.vertical,
         slivers: [
           SliverAppBar(
             title: const Text(
@@ -18,7 +19,7 @@ class FarmersFreshZone extends StatelessWidget {
               ),
             ),
             floating: true,
-            pinned: true,
+            pinned: false,
             actions: [
               Padding(
                 padding: const EdgeInsets.all(6.0),
@@ -157,43 +158,43 @@ class FarmersFreshZone extends StatelessWidget {
                         ),
                       ),
                     ), */
-                    Card(
-                      child: Container(
-                        child: const Image(
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                        ),
+                    Container(
+                      child:  Image(
+                        //width: double.infinity,
+                        //height: double.infinity,
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height *1,
+                        fit: BoxFit.cover,
+                        image: const NetworkImage(
+                            'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       ),
                     ),
-                    Card(
-                      child: Container(
-                        child: const Image(
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                        ),
+                    Container(
+                      child:  Image(
+                        // width: double.infinity,
+                        // height: double.infinity,
+                        width: MediaQuery.of(context).size.width *1,
+                        height: MediaQuery.of(context).size.height *1,
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       ),
                     ),
-                    Card(
-                      child: Container(
-                        child: const Image(
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                        ),
+                    Container(
+                      child:  Image(
+                        // width: double.infinity,
+                        // height: double.infinity,
+                        width: MediaQuery.of(context).size.width*1,
+                        height: MediaQuery.of(context).size.height*1,
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       ),
                     )
                   ],
                   options: CarouselOptions(
                     height: 150,
-                    aspectRatio: 16 / 9,
+                    aspectRatio: 12 / 5,
                     //viewportFraction: 0.2,
                     autoPlay: true,
                     autoPlayAnimationDuration: const Duration(milliseconds: 3),
@@ -274,7 +275,12 @@ class FarmersFreshZone extends StatelessWidget {
                   height: 10,
                 ),
                 //! List the items
-                VegGrid()
+                VegGrid(),
+                const SizedBox(
+                  height: 10,
+                ),
+                //! Adds
+                
               ],
             ),
           ),
@@ -283,3 +289,5 @@ class FarmersFreshZone extends StatelessWidget {
     );
   }
 }
+
+
