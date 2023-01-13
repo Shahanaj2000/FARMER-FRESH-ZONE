@@ -1,6 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:farmers_fresh_zone/fruits.dart';
 import 'package:farmers_fresh_zone/items1.dart';
 import 'package:flutter/material.dart';
+
+List<String> carouselimages = [
+  "https://images.news18.com/ibnlive/uploads/2021/08/tomato1-16299798893x2.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROvtRXHaAOMuDO_2oW95H17oDFf6zyfJ1fpA&usqp=CAU",
+  "https://images.news18.com/ibnlive/uploads/2021/08/tomato1-16299798893x2.jpg",
+  "https://nationaltoday.com/wp-content/uploads/2021/06/National-Herbs-and-Spices-Day-1-640x514.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGnnQcNCeHzbkq9lu8hm_yj4EC9tvk4_5_TA&usqp=CAU",
+  "https://images.news18.com/ibnlive/uploads/2021/08/tomato1-16299798893x2.jpg",
+];
 
 class FarmersFreshZone extends StatelessWidget {
   const FarmersFreshZone({super.key});
@@ -148,44 +158,34 @@ class FarmersFreshZone extends StatelessWidget {
 
                 CarouselSlider(
                   items: [
-                    /*Container(
-                      decoration: const BoxDecoration(
-                        //borderRadius: BorderRadius.circular(8),
-                        image:  DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                        ),
-                      ),
-                    ), */
                     Container(
-                      child:  Image(
+                      child: Image(
                         //width: double.infinity,
                         //height: double.infinity,
                         width: MediaQuery.of(context).size.width * 1,
-                        height: MediaQuery.of(context).size.height *1,
+                        height: MediaQuery.of(context).size.height * 1,
                         fit: BoxFit.cover,
                         image: const NetworkImage(
                             'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       ),
                     ),
                     Container(
-                      child:  Image(
+                      child: Image(
                         // width: double.infinity,
                         // height: double.infinity,
-                        width: MediaQuery.of(context).size.width *1,
-                        height: MediaQuery.of(context).size.height *1,
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 1,
                         fit: BoxFit.cover,
                         image: NetworkImage(
                             'https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       ),
                     ),
                     Container(
-                      child:  Image(
+                      child: Image(
                         // width: double.infinity,
                         // height: double.infinity,
-                        width: MediaQuery.of(context).size.width*1,
-                        height: MediaQuery.of(context).size.height*1,
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 1,
                         fit: BoxFit.cover,
                         image: NetworkImage(
                             'https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
@@ -194,7 +194,7 @@ class FarmersFreshZone extends StatelessWidget {
                   ],
                   options: CarouselOptions(
                     height: 150,
-                    aspectRatio: 12 / 5,
+                    aspectRatio: 1.5,
                     //viewportFraction: 0.2,
                     autoPlay: true,
                     autoPlayAnimationDuration: const Duration(milliseconds: 3),
@@ -262,7 +262,7 @@ class FarmersFreshZone extends StatelessWidget {
                   height: 10,
                 ),
                 const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(10.0),
                   child: Text(
                     "Shop By Category",
                     style: TextStyle(
@@ -279,15 +279,73 @@ class FarmersFreshZone extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
+
                 //! Adds
-                
+                CarouselSlider(
+                  items: [
+                    Card(
+                      color: Colors.red,
+                      child: Container(
+                        height: 200,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                "https://cdn.pixabay.com/photo/2014/02/27/16/10/tree-276014_960_720.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                  options: CarouselOptions(
+                    height: 150,
+                    //aspectRatio: 16 / 9,
+                    viewportFraction: 0.9,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    enlargeFactor: 0.3,
+                    //onPageChanged: callbackFunction,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                )
               ],
             ),
           ),
+
+          //! 
+          SliverList(
+            delegate: SliverChildListDelegate([
+              const SizedBox(
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  "Best Selling Products",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Fruits()
+                  
+                
+            
+            ]),
+          )
         ],
       ),
     );
   }
 }
-
-
